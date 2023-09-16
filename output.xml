@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.9.7 on win32)" generated="20230916 15:27:52.895" rpa="false" schemaversion="4">
+<suite id="s1" name="User-Notifications-Api" source="C:\Users\jahna\OneDrive\Documents\GitHub\CDP_Testing_RobotFramework\user-notifications-api.robot">
+<test id="s1-t1" name="Search for User Notifications API" line="16">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session1</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230916 15:27:53.083" level="INFO">Creating Session using : alias=session1, url=https://47.206.223.110:8443, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230916 15:27:53.083" endtime="20230916 15:27:53.083"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${query_params}</var>
+<arg>imsi=${imsi}</arg>
+<arg>servicePassId=${service_pass_id}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230916 15:27:53.083" level="INFO">${query_params} = {'imsi': '1986', 'servicePassId': '102'}</msg>
+<status status="PASS" starttime="20230916 15:27:53.083" endtime="20230916 15:27:53.083"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Authorization=${access_token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230916 15:27:53.083" level="INFO">${headers} = {'Authorization': 'Bearer eyJraWQiOiIwY2Y5NTJlYS0wYTIwLTRhODItYTNjNi1lZGQyOTMwYTQxY2MiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6ImFkbWluIiwibmJmIjoxNjk0NTg2Njc2LCJzY29wZSI6WyJTWVNURU1fTUFOQUdFI...</msg>
+<status status="PASS" starttime="20230916 15:27:53.083" endtime="20230916 15:27:53.083"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>session1</arg>
+<arg>${endpoint}</arg>
+<arg>params=${query_params}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230916 15:27:54.018" level="INFO">GET Request : url=https://47.206.223.110:8443/cdp/v1/user-notifications?imsi=1986&amp;servicePassId=102 
+ path_url=/cdp/v1/user-notifications?imsi=1986&amp;servicePassId=102 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJraWQiOiIwY2Y5NTJlYS0wYTIwLTRhODItYTNjNi1lZGQyOTMwYTQxY2MiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6ImFkbWluIiwibmJmIjoxNjk0NTg2Njc2LCJzY29wZSI6WyJTWVNURU1fTUFOQUdFIiwib3BlbmlkIl0sImlzcyI6Imh0dHBzOi8vNDcuMjA2LjIyMy4xMTA6ODQ0MyIsImV4cCI6MTY5NTE5MTQ3NiwiaWF0IjoxNjk0NTg2Njc2fQ.aNB_4EaYdz8W3t-51HypooKLFHb0PhBjbEYyWQCHqj990LUHSiWAR6voEib9Vpn7YE2FPMcRUIBReH51YJHMM688p4GjFBePMJju2jUpjQz9QoGsTLrSM6DuNSsHK1TiWy9uiWyhoSngN-busLojakDIoxSBw7-ofJVSjq-7e62KBvCCwNK4xrCen9EZ7qdxNPBBM48CFriL4OAZ0UAL0jb81oRP_e7aBJT-mtxYzAX2tgDsfMY924-nBHpbH6t0RHBM3ZkB0XhagW92Dp2F9QJzmrstnNGjLtx9Wf10RaJiNrExi6XBm80WOpQ-3HzPv2buDkOs6oQzxDvF1jC8pjit9Rot4h1MxPup0U9_j1idKSOqPDU7pX1wZAVlt1IQxSrGrWtb8lFsJfKNq3JAfhrPBWu23KOFBLPSi9K8AmBi-UvTfQdRiEx3_Rk738JobI6at-vz6cIiX2_G5EoZwur-nBmaRrd5Qe04MoJi40LqQBBAkbqjR_oul9uP9-RC-mk1DM0XoqC6wGvcoHUKDChVgm7qLVfES4_vMU5uNzu2FPt2TloxxiAS5mRBaZbbpeWlllFqbF9yH7XfXZ_7Fadbv-8DUgKPt3dUcte7OclgSq-sGxyl-229QPvjvm-xJ9breVAqeQdscX_axrP9-TAtH_gsQzmcxjnJvFojc4I'} 
+ body=None 
+ </msg>
+<msg timestamp="20230916 15:27:54.018" level="INFO">GET Response : url=https://47.206.223.110:8443/cdp/v1/user-notifications?imsi=1986&amp;servicePassId=102 
+ status=200, reason=OK 
+ headers={'transfer-encoding': 'chunked', 'Content-Type': 'application/json', 'Date': 'Sat, 16 Sep 2023 09:57:54 GMT'} 
+ body=[{"id":"65057428c70ee767bf246bc8","imsi":"1986","servicePassId":null,"name":"WELCOME_MESSAGE","desc":null,"channels":["EMAIL"],"message":"Welcome to Data Roaming solution. You can start exploring the Data Plans at %user-portal%.","status":null,"createdDate":"2023-09-16T09:23:52.100+00:00","sentDate":null,"retryCount":null}] 
+ </msg>
+<msg timestamp="20230916 15:27:54.018" level="INFO">C:\Users\jahna\anaconda3\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host '47.206.223.110'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230916 15:27:54.018" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230916 15:27:53.083" endtime="20230916 15:27:54.018"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230916 15:27:54.018" endtime="20230916 15:27:54.033"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230916 15:27:54.033" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20230916 15:27:54.033" endtime="20230916 15:27:54.033"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230916 15:27:54.033" endtime="20230916 15:27:54.033"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${response_json}</var>
+<arg>json.loads('''${response.content}''')</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230916 15:27:54.033" level="INFO">${response_json} = [{'id': '65057428c70ee767bf246bc8', 'imsi': '1986', 'servicePassId': None, 'name': 'WELCOME_MESSAGE', 'desc': None, 'channels': ['EMAIL'], 'message': 'Welcome to Data Roaming solution. You can start e...</msg>
+<status status="PASS" starttime="20230916 15:27:54.033" endtime="20230916 15:27:54.033"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${created_user_id}</var>
+<arg>${response_json[0]['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230916 15:27:54.033" level="INFO">${created_user_id} = 65057428c70ee767bf246bc8</msg>
+<status status="PASS" starttime="20230916 15:27:54.033" endtime="20230916 15:27:54.033"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Created User ID: ${created_user_id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230916 15:27:54.033" endtime="20230916 15:27:54.033"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${id}</arg>
+<arg>${created_user_id}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230916 15:27:54.033" level="INFO">${id} = 65057428c70ee767bf246bc8</msg>
+<status status="PASS" starttime="20230916 15:27:54.033" endtime="20230916 15:27:54.033"/>
+</kw>
+<tag>Demo</tag>
+<status status="PASS" starttime="20230916 15:27:53.083" endtime="20230916 15:27:54.033"/>
+</test>
+<test id="s1-t2" name="Read a User Notification API" line="34">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>session1</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230916 15:27:54.033" level="INFO">Creating Session using : alias=session1, url=https://47.206.223.110:8443, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230916 15:27:54.033" endtime="20230916 15:27:54.033"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${endpoint}</var>
+<arg>${endpoint}/${id}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230916 15:27:54.033" level="INFO">${endpoint} = /cdp/v1/user-notifications/65057428c70ee767bf246bc8</msg>
+<status status="PASS" starttime="20230916 15:27:54.033" endtime="20230916 15:27:54.033"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Authorization=${access_token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230916 15:27:54.033" level="INFO">${headers} = {'Authorization': 'Bearer eyJraWQiOiIwY2Y5NTJlYS0wYTIwLTRhODItYTNjNi1lZGQyOTMwYTQxY2MiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6ImFkbWluIiwibmJmIjoxNjk0NTg2Njc2LCJzY29wZSI6WyJTWVNURU1fTUFOQUdFI...</msg>
+<status status="PASS" starttime="20230916 15:27:54.033" endtime="20230916 15:27:54.033"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>session1</arg>
+<arg>${endpoint}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20230916 15:27:55.139" level="INFO">GET Request : url=https://47.206.223.110:8443/cdp/v1/user-notifications/65057428c70ee767bf246bc8 
+ path_url=/cdp/v1/user-notifications/65057428c70ee767bf246bc8 
+ headers={'User-Agent': 'python-requests/2.26.0', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJraWQiOiIwY2Y5NTJlYS0wYTIwLTRhODItYTNjNi1lZGQyOTMwYTQxY2MiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImF1ZCI6ImFkbWluIiwibmJmIjoxNjk0NTg2Njc2LCJzY29wZSI6WyJTWVNURU1fTUFOQUdFIiwib3BlbmlkIl0sImlzcyI6Imh0dHBzOi8vNDcuMjA2LjIyMy4xMTA6ODQ0MyIsImV4cCI6MTY5NTE5MTQ3NiwiaWF0IjoxNjk0NTg2Njc2fQ.aNB_4EaYdz8W3t-51HypooKLFHb0PhBjbEYyWQCHqj990LUHSiWAR6voEib9Vpn7YE2FPMcRUIBReH51YJHMM688p4GjFBePMJju2jUpjQz9QoGsTLrSM6DuNSsHK1TiWy9uiWyhoSngN-busLojakDIoxSBw7-ofJVSjq-7e62KBvCCwNK4xrCen9EZ7qdxNPBBM48CFriL4OAZ0UAL0jb81oRP_e7aBJT-mtxYzAX2tgDsfMY924-nBHpbH6t0RHBM3ZkB0XhagW92Dp2F9QJzmrstnNGjLtx9Wf10RaJiNrExi6XBm80WOpQ-3HzPv2buDkOs6oQzxDvF1jC8pjit9Rot4h1MxPup0U9_j1idKSOqPDU7pX1wZAVlt1IQxSrGrWtb8lFsJfKNq3JAfhrPBWu23KOFBLPSi9K8AmBi-UvTfQdRiEx3_Rk738JobI6at-vz6cIiX2_G5EoZwur-nBmaRrd5Qe04MoJi40LqQBBAkbqjR_oul9uP9-RC-mk1DM0XoqC6wGvcoHUKDChVgm7qLVfES4_vMU5uNzu2FPt2TloxxiAS5mRBaZbbpeWlllFqbF9yH7XfXZ_7Fadbv-8DUgKPt3dUcte7OclgSq-sGxyl-229QPvjvm-xJ9breVAqeQdscX_axrP9-TAtH_gsQzmcxjnJvFojc4I'} 
+ body=None 
+ </msg>
+<msg timestamp="20230916 15:27:55.139" level="INFO">GET Response : url=https://47.206.223.110:8443/cdp/v1/user-notifications/65057428c70ee767bf246bc8 
+ status=200, reason=OK 
+ headers={'transfer-encoding': 'chunked', 'Content-Type': 'application/json', 'Date': 'Sat, 16 Sep 2023 09:57:55 GMT'} 
+ body={"id":"65057428c70ee767bf246bc8","imsi":"1986","servicePassId":null,"name":"WELCOME_MESSAGE","desc":null,"channels":["EMAIL"],"message":"Welcome to Data Roaming solution. You can start exploring the Data Plans at %user-portal%.","status":null,"createdDate":"2023-09-16T09:23:52.100+00:00","sentDate":null,"retryCount":null} 
+ </msg>
+<msg timestamp="20230916 15:27:55.139" level="INFO">C:\Users\jahna\anaconda3\lib\site-packages\urllib3\connectionpool.py:1013: InsecureRequestWarning: Unverified HTTPS request is being made to host '47.206.223.110'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20230916 15:27:55.139" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230916 15:27:54.033" endtime="20230916 15:27:55.139"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.headers}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230916 15:27:55.139" endtime="20230916 15:27:55.139"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230916 15:27:55.139" endtime="20230916 15:27:55.139"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230916 15:27:55.139" endtime="20230916 15:27:55.154"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230916 15:27:55.154" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20230916 15:27:55.154" endtime="20230916 15:27:55.154"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230916 15:27:55.154" endtime="20230916 15:27:55.154"/>
+</kw>
+<tag>Demo</tag>
+<status status="PASS" starttime="20230916 15:27:54.033" endtime="20230916 15:27:55.154"/>
+</test>
+<status status="PASS" starttime="20230916 15:27:52.895" endtime="20230916 15:27:55.154"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="2" fail="0" skip="0">Demo</stat>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="User-Notifications-Api">User-Notifications-Api</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
